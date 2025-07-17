@@ -18,7 +18,7 @@ import {
   Target,
   Gift,
   Crown,
-  Fire
+  Flame
 } from 'lucide-react';
 import WalletConnection from '@/components/WalletConnection';
 import MemeUploader from '@/components/MemeUploader';
@@ -74,7 +74,7 @@ const Index = () => {
               { icon: Users, label: "Warriors", value: "12,547", color: "text-blue-400" },
               { icon: Trophy, label: "Memes Created", value: "89,234", color: "text-purple-400" },
               { icon: Coins, label: "XP Earned", value: "2.1M", color: "text-yellow-400" },
-              { icon: Fire, label: "Daily Streak", value: "365 days", color: "text-red-400" }
+              { icon: Flame, label: "Daily Streak", value: "365 days", color: "text-red-400" }
             ].map((stat, index) => (
               <Card key={index} className="bg-card-gradient border-purple-800/30 hover-glow hover-scale">
                 <CardContent className="p-6 text-center">
@@ -121,7 +121,7 @@ const Index = () => {
               <Card className="bg-card-gradient border-purple-800/30">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Fire className="w-5 h-5 text-red-400" />
+                    <Flame className="w-5 h-5 text-red-400" />
                     Daily Streak
                   </CardTitle>
                 </CardHeader>
