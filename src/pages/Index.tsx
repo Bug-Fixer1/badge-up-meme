@@ -155,63 +155,60 @@ const Index = () => {
         </section>
       )}
 
-      {/* Features Grid */}
-      <section id="rewards" className="py-16 px-4 bg-gradient-to-b from-background to-purple-950/10">
+      {/* Badge Collection */}
+      <section className="py-24 px-4">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-800/20 border border-purple-700/30 mb-6">
-              <Star className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm font-medium text-purple-300">EPIC FEATURES</span>
+              <Trophy className="w-4 h-4 text-yellow-400" />
+              <span className="text-sm font-medium text-purple-300">ACHIEVEMENTS</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gradient-purple mb-4">
-              Unlock Your Potential
+              Badge Collection
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Collect legendary badges, build your empire through referrals, and dominate the meme economy
+              Unlock legendary badges and showcase your meme mastery
             </p>
           </div>
+          <BadgeTracker />
+        </div>
+      </section>
 
-          <div className="max-w-6xl mx-auto space-y-12">
-            <div className="w-full">
-              <BadgeTracker />
+      {/* Referral Campaign */}
+      <section className="py-24 px-4 bg-gradient-to-b from-background to-purple-950/5">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-800/20 border border-green-700/30 mb-6">
+              <Users className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-medium text-green-300">NETWORK</span>
             </div>
-            <div className="w-full">
-              <ReferralTracker />
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient-purple mb-4">
+              Referral Empire
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Build your network and unlock exclusive tier bonuses
+            </p>
           </div>
-
-          {/* Feature Highlights */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-900/30 to-pink-900/20 border border-purple-800/30 hover-glow hover-scale">
-              <Trophy className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-              <h3 className="text-lg font-bold mb-2">Achievement System</h3>
-              <p className="text-sm text-muted-foreground">Earn rare badges and show off your meme mastery</p>
-            </div>
-            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-green-900/30 to-blue-900/20 border border-green-800/30 hover-glow hover-scale">
-              <Users className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-lg font-bold mb-2">Referral Rewards</h3>
-              <p className="text-sm text-muted-foreground">Grow your network and unlock exclusive tier bonuses</p>
-            </div>
-            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-800/30 hover-glow hover-scale">
-              <Zap className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="text-lg font-bold mb-2">XP Multipliers</h3>
-              <p className="text-sm text-muted-foreground">Stack bonuses and accelerate your progression</p>
-            </div>
-          </div>
+          <ReferralTracker />
         </div>
       </section>
 
       {/* Leaderboard */}
-      <section className="py-16 px-4">
+      <section className="py-24 px-4">
         <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-800/20 border border-yellow-700/30 mb-6">
+              <Crown className="w-4 h-4 text-yellow-400" />
+              <span className="text-sm font-medium text-yellow-300">COMPETITION</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient-purple mb-4">
+              Hall of Fame
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              See where you rank among the meme warriors
+            </p>
+          </div>
           <Leaderboard />
-        </div>
-      </section>
-
-      {/* Social Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <SocialEmbeds />
         </div>
       </section>
 
