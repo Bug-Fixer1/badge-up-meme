@@ -171,11 +171,11 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            <div className="space-y-4">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="w-full">
               <BadgeTracker />
             </div>
-            <div className="space-y-4">
+            <div className="w-full">
               <ReferralTracker />
             </div>
           </div>
