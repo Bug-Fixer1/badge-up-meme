@@ -28,6 +28,7 @@ import Leaderboard from '@/components/Leaderboard';
 import ReferralTracker from '@/components/ReferralTracker';
 import SocialEmbeds from '@/components/SocialEmbeds';
 import CountdownTimer from '@/components/CountdownTimer';
+import Navigation from '@/components/Navigation';
 
 const Index = () => {
   const [walletConnected, setWalletConnected] = useState(false);
@@ -45,6 +46,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 px-4">
         <div className="absolute inset-0 bg-crypto-gradient opacity-10"></div>
@@ -154,16 +156,47 @@ const Index = () => {
       )}
 
       {/* Features Grid */}
-      <section className="py-16 px-4">
+      <section id="rewards" className="py-16 px-4 bg-gradient-to-b from-background to-purple-950/10">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gradient-purple mb-4">Epic Features</h2>
-            <p className="text-muted-foreground">Everything you need to dominate the meme game</p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-800/20 border border-purple-700/30 mb-6">
+              <Star className="w-4 h-4 text-yellow-400" />
+              <span className="text-sm font-medium text-purple-300">EPIC FEATURES</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient-purple mb-4">
+              Unlock Your Potential
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Collect legendary badges, build your empire through referrals, and dominate the meme economy
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <BadgeTracker />
-            <ReferralTracker />
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <div className="space-y-4">
+              <BadgeTracker />
+            </div>
+            <div className="space-y-4">
+              <ReferralTracker />
+            </div>
+          </div>
+
+          {/* Feature Highlights */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-900/30 to-pink-900/20 border border-purple-800/30 hover-glow hover-scale">
+              <Trophy className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold mb-2">Achievement System</h3>
+              <p className="text-sm text-muted-foreground">Earn rare badges and show off your meme mastery</p>
+            </div>
+            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-green-900/30 to-blue-900/20 border border-green-800/30 hover-glow hover-scale">
+              <Users className="w-12 h-12 text-green-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold mb-2">Referral Rewards</h3>
+              <p className="text-sm text-muted-foreground">Grow your network and unlock exclusive tier bonuses</p>
+            </div>
+            <div className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-800/30 hover-glow hover-scale">
+              <Zap className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold mb-2">XP Multipliers</h3>
+              <p className="text-sm text-muted-foreground">Stack bonuses and accelerate your progression</p>
+            </div>
           </div>
         </div>
       </section>

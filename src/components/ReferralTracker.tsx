@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Share2, Copy, Gift, Users, ExternalLink } from 'lucide-react';
+import { Share2, Copy, Gift, Users, ExternalLink, Coins } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ReferralTracker: React.FC = () => {
@@ -42,23 +42,35 @@ const ReferralTracker: React.FC = () => {
   const nextTier = tiers.find(tier => referrals < tier.required);
 
   return (
-    <Card className="bg-card-gradient border-purple-800/30 hover-glow">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Share2 className="w-5 h-5 text-green-400" />
-          Referral Campaign
+    <Card className="bg-card-gradient border-purple-800/30 hover-glow overflow-hidden">
+      <CardHeader className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border-b border-purple-800/30">
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Share2 className="w-6 h-6 text-green-400" />
+            <span className="text-gradient-purple">Referral Campaign</span>
+          </div>
+          <Badge className="bg-green-400/20 text-green-400 border-green-400/30">
+            Tier: {currentTier.name.split(' ')[0]}
+          </Badge>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Stats */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="text-center p-4 bg-purple-900/20 rounded-lg border border-purple-800/30">
-            <div className="text-2xl font-bold text-gradient-gold">{referrals}</div>
-            <div className="text-sm text-muted-foreground">Referrals</div>
+      <CardContent className="p-6 space-y-6">
+        {/* Enhanced Stats */}
+        <div className="grid grid-cols-3 gap-4">
+          <div className="text-center p-4 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-800/30 hover-scale">
+            <Users className="w-6 h-6 text-green-400 mx-auto mb-2" />
+            <div className="text-2xl font-bold text-green-400">{referrals}</div>
+            <div className="text-xs text-muted-foreground">Referrals</div>
           </div>
-          <div className="text-center p-4 bg-purple-900/20 rounded-lg border border-purple-800/30">
-            <div className="text-2xl font-bold text-gradient-purple">{totalEarned}</div>
-            <div className="text-sm text-muted-foreground">XP Earned</div>
+          <div className="text-center p-4 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-800/30 hover-scale">
+            <Coins className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+            <div className="text-2xl font-bold text-purple-400">{totalEarned}</div>
+            <div className="text-xs text-muted-foreground">XP Earned</div>
+          </div>
+          <div className="text-center p-4 bg-gradient-to-br from-yellow-900/30 to-yellow-800/20 rounded-xl border border-yellow-800/30 hover-scale">
+            <Gift className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
+            <div className="text-2xl font-bold text-yellow-400">{Math.floor(totalEarned / 100)}</div>
+            <div className="text-xs text-muted-foreground">Bonus Earned</div>
           </div>
         </div>
 
