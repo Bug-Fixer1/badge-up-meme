@@ -49,22 +49,24 @@ const Index = () => {
       <Navigation />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 px-4">
-        <div className="absolute inset-0 bg-crypto-gradient opacity-10"></div>
+        <div className="absolute inset-0 bg-crypto-gradient opacity-10 animate-glow-pulse"></div>
         <div className="container mx-auto text-center relative z-10">
           <div className="mb-8 animate-float">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-gradient-purple">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-gradient-purple animate-fade-in-down">
               MEME WARRIOR
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
               The ultimate meme coin experience. Upload, earn, compete, and dominate the meme economy.
             </p>
           </div>
 
-          <CountdownTimer />
+          <div className="animate-scale-in animation-delay-500">
+            <CountdownTimer />
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up animation-delay-700">
             <WalletConnection onConnect={handleWalletConnect} />
-            <Button size="lg" className="bg-gaming-gradient hover:glow-pink hover-scale">
+            <Button size="lg" className="bg-gaming-gradient hover:glow-pink hover-scale animate-glow-pulse">
               <Rocket className="w-5 h-5 mr-2" />
               Join Waitlist
             </Button>
@@ -78,7 +80,11 @@ const Index = () => {
               { icon: Coins, label: "XP Earned", value: "2.1M", color: "text-yellow-400" },
               { icon: Flame, label: "Daily Streak", value: "365 days", color: "text-red-400" }
             ].map((stat, index) => (
-              <Card key={index} className="bg-card-gradient border-purple-800/30 hover-glow hover-scale">
+              <Card 
+                key={index} 
+                className={`bg-card-gradient border-purple-800/30 hover-glow hover-scale animate-fade-in-up`}
+                style={{ animationDelay: `${900 + index * 150}ms` }}
+              >
                 <CardContent className="p-6 text-center">
                   <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color}`} />
                   <div className="text-2xl font-bold text-gradient-gold">{stat.value}</div>
@@ -94,24 +100,24 @@ const Index = () => {
       {walletConnected && (
         <section className="py-20 px-4 bg-gradient-to-br from-blue-950/20 via-background to-purple-950/20">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/30">
+            <div className="text-center mb-16 animate-fade-in-up">
+              <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/30 animate-scale-in">
                 <Zap className="w-3 h-3 mr-1" />
                 DASHBOARD
               </Badge>
-              <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+              <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4 animate-fade-in-down">
                 Command Center
               </h2>
-              <p className="text-xl text-muted-foreground">Your journey to meme mastery starts here</p>
+              <p className="text-xl text-muted-foreground animate-fade-in-up animation-delay-300">Your journey to meme mastery starts here</p>
             </div>
 
             {/* Simplified Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              <div className="relative group">
+              <div className="relative group animate-fade-in-left animation-delay-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl blur-xl group-hover:blur-lg transition-all duration-300"></div>
-                <Card className="relative bg-gradient-to-br from-background/80 to-yellow-950/20 border-yellow-500/30 backdrop-blur-sm">
+                <Card className="relative bg-gradient-to-br from-background/80 to-yellow-950/20 border-yellow-500/30 backdrop-blur-sm hover-scale">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-glow-pulse">
                       <Star className="w-8 h-8 text-black" />
                     </div>
                     <div className="text-4xl font-bold text-gradient-gold mb-2">Level {userLevel}</div>
@@ -121,11 +127,11 @@ const Index = () => {
                 </Card>
               </div>
 
-              <div className="relative group">
+              <div className="relative group animate-scale-in animation-delay-700">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-2xl blur-xl group-hover:blur-lg transition-all duration-300"></div>
-                <Card className="relative bg-gradient-to-br from-background/80 to-red-950/20 border-red-500/30 backdrop-blur-sm">
+                <Card className="relative bg-gradient-to-br from-background/80 to-red-950/20 border-red-500/30 backdrop-blur-sm hover-scale">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-glow-pulse">
                       <Flame className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl font-bold text-red-400 mb-2">{dailyStreak}</div>
@@ -134,11 +140,11 @@ const Index = () => {
                 </Card>
               </div>
 
-              <div className="relative group">
+              <div className="relative group animate-fade-in-right animation-delay-900">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-lg transition-all duration-300"></div>
-                <Card className="relative bg-gradient-to-br from-background/80 to-purple-950/20 border-purple-500/30 backdrop-blur-sm">
+                <Card className="relative bg-gradient-to-br from-background/80 to-purple-950/20 border-purple-500/30 backdrop-blur-sm hover-scale">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-glow-pulse">
                       <Crown className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl font-bold text-gradient-purple mb-2">#47</div>
@@ -150,8 +156,12 @@ const Index = () => {
 
             {/* Action Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <DailyCheckIn onCheckIn={() => addXP(50)} />
-              <MemeUploader onUpload={() => addXP(100)} />
+              <div className="animate-slide-up animation-delay-1100">
+                <DailyCheckIn onCheckIn={() => addXP(50)} />
+              </div>
+              <div className="animate-slide-up animation-delay-1300">
+                <MemeUploader onUpload={() => addXP(100)} />
+              </div>
             </div>
           </div>
         </section>
