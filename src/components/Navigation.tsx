@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Home, 
   Trophy, 
@@ -20,10 +21,10 @@ import {
 
 const Navigation: React.FC = () => {
   const navItems = [
-    { name: 'Home', icon: Home, href: '#' },
+    { name: 'Home', icon: Home, href: '/' },
+    { name: 'Gallery', icon: Upload, href: '/gallery' },
     { name: 'Leaderboard', icon: Trophy, href: '#leaderboard' },
     { name: 'Community', icon: Users, href: '#community' },
-    { name: 'Upload', icon: Upload, href: '#upload' },
     { name: 'Rewards', icon: Coins, href: '#rewards' },
   ];
 
@@ -49,10 +50,17 @@ const Navigation: React.FC = () => {
                 className="text-muted-foreground hover:text-primary hover:bg-purple-800/20 transition-colors"
                 asChild
               >
-                <a href={item.href} className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4" />
-                  {item.name}
-                </a>
+                {item.href.startsWith('#') ? (
+                  <a href={item.href} className="flex items-center gap-2">
+                    <item.icon className="w-4 h-4" />
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link to={item.href} className="flex items-center gap-2">
+                    <item.icon className="w-4 h-4" />
+                    {item.name}
+                  </Link>
+                )}
               </Button>
             ))}
           </div>
@@ -76,16 +84,29 @@ const Navigation: React.FC = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-48 p-2">
-                      {navItems.map((item) => (
-                        <NavigationMenuLink
-                          key={item.name}
-                          className="flex items-center gap-2 p-2 rounded-md hover:bg-purple-800/20 text-sm"
-                          href={item.href}
-                        >
-                          <item.icon className="w-4 h-4" />
-                          {item.name}
-                        </NavigationMenuLink>
-                      ))}
+                      {navItems.map((item) => 
+                        item.href.startsWith('#') ? (
+                          <NavigationMenuLink
+                            key={item.name}
+                            className="flex items-center gap-2 p-2 rounded-md hover:bg-purple-800/20 text-sm"
+                            href={item.href}
+                          >
+                            <item.icon className="w-4 h-4" />
+                            {item.name}
+                          </NavigationMenuLink>
+                        ) : (
+                          <NavigationMenuLink
+                            key={item.name}
+                            className="flex items-center gap-2 p-2 rounded-md hover:bg-purple-800/20 text-sm"
+                            asChild
+                          >
+                            <Link to={item.href}>
+                              <item.icon className="w-4 h-4" />
+                              {item.name}
+                            </Link>
+                          </NavigationMenuLink>
+                        )
+                      )}
                       <div className="border-t border-purple-800/30 mt-2 pt-2">
                         <NavigationMenuLink
                           className="flex items-center gap-2 p-2 rounded-md hover:bg-purple-800/20 text-sm"

@@ -155,12 +155,35 @@ const Index = () => {
             </div>
 
             {/* Action Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="animate-slide-up animation-delay-1100">
                 <DailyCheckIn onCheckIn={() => addXP(50)} />
               </div>
               <div className="animate-slide-up animation-delay-1300">
                 <MemeUploader onUpload={() => addXP(100)} />
+              </div>
+              <div className="animate-slide-up animation-delay-1400 p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Trophy className="w-5 h-5 text-purple-400" />
+                    <h3 className="text-lg font-semibold">Level {userLevel}</h3>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span>XP Progress</span>
+                      <span>{userXP}/2000</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div 
+                        className="bg-gaming-gradient h-2 rounded-full transition-all duration-300" 
+                        style={{ width: `${(userXP / 2000) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Next reward: Legendary Badge
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -168,34 +191,34 @@ const Index = () => {
       )}
 
       {/* Badge Collection */}
-      <section className="py-32 px-4 bg-gradient-to-r from-amber-950/10 via-background to-yellow-950/10">
-        <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2 space-y-8">
-              <div className="space-y-4">
-                <Badge className="bg-amber-500/20 text-amber-300 border-amber-500/30 text-sm px-4 py-2">
-                  <Trophy className="w-4 h-4 mr-2" />
-                  ACHIEVEMENT SYSTEM
+      <section className="py-16 px-4 bg-gradient-to-r from-amber-950/10 via-background to-yellow-950/10">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-2/5 space-y-6">
+              <div className="space-y-3">
+                <Badge className="bg-amber-500/20 text-amber-300 border-amber-500/30 text-xs px-3 py-1">
+                  <Trophy className="w-3 h-3 mr-1" />
+                  BADGE COLLECTION
                 </Badge>
-                <h2 className="text-6xl font-bold bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent leading-tight">
-                  Legendary<br />Achievements
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent leading-tight">
+                  Achievement<br />System
                 </h2>
-                <p className="text-2xl text-muted-foreground leading-relaxed">
-                  Collect rare badges, unlock exclusive rewards, and showcase your meme mastery to the world.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Collect rare badges and showcase your meme mastery.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                  <div className="text-3xl font-bold text-amber-400">24</div>
-                  <div className="text-sm text-muted-foreground">Total Badges</div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                  <div className="text-2xl font-bold text-amber-400">24</div>
+                  <div className="text-xs text-muted-foreground">Total Badges</div>
                 </div>
-                <div className="p-6 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
-                  <div className="text-3xl font-bold text-yellow-400">7</div>
-                  <div className="text-sm text-muted-foreground">Unlocked</div>
+                <div className="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+                  <div className="text-2xl font-bold text-yellow-400">7</div>
+                  <div className="text-xs text-muted-foreground">Unlocked</div>
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2">
+            <div className="lg:w-3/5">
               <BadgeTracker />
             </div>
           </div>
@@ -203,34 +226,38 @@ const Index = () => {
       </section>
 
       {/* Referral Campaign */}
-      <section className="py-32 px-4 bg-gradient-to-l from-emerald-950/10 via-background to-green-950/10">
-        <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-            <div className="lg:w-1/2 space-y-8">
-              <div className="space-y-4">
-                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-sm px-4 py-2">
-                  <Users className="w-4 h-4 mr-2" />
-                  NETWORK BUILDING
+      <section className="py-16 px-4 bg-gradient-to-l from-green-950/10 via-background to-emerald-950/10">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div className="lg:w-2/5 space-y-6">
+              <div className="space-y-3">
+                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-3 py-1">
+                  <Users className="w-3 h-3 mr-1" />
+                  REFERRALS
                 </Badge>
-                <h2 className="text-6xl font-bold bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent leading-tight">
-                  Referral<br />Empire
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent leading-tight">
+                  Invite &<br />Earn
                 </h2>
-                <p className="text-2xl text-muted-foreground leading-relaxed">
-                  Build your warrior network, earn massive bonuses, and climb the referral ranks.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Invite friends and earn rewards together.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-                  <div className="text-3xl font-bold text-emerald-400">156</div>
-                  <div className="text-sm text-muted-foreground">Referrals</div>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center">
+                  <div className="text-xl font-bold text-emerald-400">12</div>
+                  <div className="text-xs text-muted-foreground">Invited</div>
                 </div>
-                <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20">
-                  <div className="text-3xl font-bold text-green-400">2.4k</div>
-                  <div className="text-sm text-muted-foreground">Bonus XP</div>
+                <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-center">
+                  <div className="text-xl font-bold text-green-400">8</div>
+                  <div className="text-xs text-muted-foreground">Joined</div>
+                </div>
+                <div className="p-3 rounded-lg bg-teal-500/10 border border-teal-500/20 text-center">
+                  <div className="text-xl font-bold text-teal-400">420</div>
+                  <div className="text-xs text-muted-foreground">XP</div>
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2">
+            <div className="lg:w-3/5">
               <ReferralTracker />
             </div>
           </div>
